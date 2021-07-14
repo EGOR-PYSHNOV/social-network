@@ -1,0 +1,133 @@
+@import '../../node_modules/normalize-scss/sass/normalize';
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  background: #fbfcfe;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+input {
+  outline: none;
+}
+
+.gray {
+  color: #adb5bd !important;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.main-content {
+  padding-top: 160px;
+  display: flex;
+  height: 100vh;
+  align-items: flex-start;
+  justify-content: center;
+  &__inner {
+    flex: 0 1 50%;
+  }
+}
+.gradient {
+  &-blue {
+    background: linear-gradient(to right, #0575e6, #021b79) !important;
+  }
+  &-red {
+    background: linear-gradient(to right, #e44d26, #f16529) !important;
+  }
+  &-gold {
+    background: linear-gradient(to right, #f2994a, #f2c94c) !important;
+  }
+  &-pink {
+    background: linear-gradient(to right, #ee0979, #ff6a00) !important;
+  }
+  &-primary {
+    background: linear-gradient(135deg, #05f, #09f) !important;
+  }
+}
+
+.button {
+  color: #fff;
+  font-weight: 600;
+  border-radius: 30px;
+  font-size: 12px;
+  border: none;
+}
+.input {
+  height: 60px;
+  border: 2px #eee solid;
+  border-radius: 7px;
+  font-weight: 600;
+  font-family: 'Open Sans';
+  color: #212529;
+  padding-left: 50px;
+  background-color: #fff;
+  width: 100%;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  &:focus,
+  &:focus-within,
+  &:focus-visible,
+  &:active,
+  &:hover {
+    border-color: #05f;
+    outline: none;
+  }
+
+  &__error {
+    margin-top: 20px;
+    color: red;
+  }
+  &__wrapper {
+    position: relative;
+    margin: 20px 0;
+    &-icon {
+      position: absolute;
+      top: 52%;
+      left: 15px;
+      transform: translateY(-52%);
+
+      svg {
+        display: flex;
+        font-size: 20px;
+        color: #adb5bd;
+      }
+    }
+  }
+}
+
+@import './components/header.scss';
+@import './components/search.scss';
+@import './components/navigationSideBar.scss';
+@import './components/Chat/chat.scss';
+@import './components/Chat/chatFriendsSideBar.scss';
+@import './components/Post/createPost.scss';
+@import './components/Post/post.scss';
+@import './components/Post/updatePost.scss';
+@import './components/404.scss';
+@import './components/loader.scss';
+@import './components/User/UserAuth.scss';
+@import './components/User/UserBannerInfo.scss';
+@import 'reactjs-popup/dist/index.css';

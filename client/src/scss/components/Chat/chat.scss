@@ -1,0 +1,399 @@
+.chat {
+  display: flex;
+  height: 700px;
+
+  background: #fff;
+
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: none;
+  box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1%);
+
+  &__scroller {
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      border-radius: 20px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #f5fbff;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #50b5ff;
+      border-radius: 20px;
+    }
+    &::selection {
+      background: #3f414d;
+      color: #ffffff;
+      text-shadow: none;
+    }
+  }
+
+  &__contacts {
+    flex: 0 1 40%;
+  }
+
+  &__messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 1 60%;
+    background: url('../../../assets/images/background-chat.jpg') no-repeat scroll center center;
+    background-size: cover;
+
+    &-content {
+      padding: 20px;
+      height: 100%;
+    }
+
+    &--none {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &-start {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &__icon {
+        background: #fff;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          font-size: 45px;
+          color: #50b5ff;
+        }
+      }
+      &__title {
+        background-color: #fff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: #212529;
+        margin-top: 20px;
+      }
+    }
+
+    &-profile {
+      background: #fff;
+      padding: 15px 0;
+      display: flex;
+      align-items: center;
+
+      &__avatar {
+        position: relative;
+        margin-left: 15px;
+        img {
+          border-radius: 5px;
+          height: 45px;
+          width: 45px;
+          object-fit: cover;
+        }
+      }
+      &__fullname {
+        margin-left: 15px;
+      }
+    }
+
+    &-add {
+      background: #fff;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+
+      &__attagement {
+        display: flex;
+        align-items: center;
+
+        svg {
+          cursor: pointer;
+          margin: 0 5px;
+
+          font-size: 20px;
+          color: #777d74;
+        }
+      }
+      &__input {
+        margin: 0 15px;
+        width: 100%;
+        input {
+          width: inherit;
+          height: 45px;
+          line-height: 45px;
+          background: transparent;
+          border: 1px solid #f1f1f1;
+          font-size: 14px;
+          color: #a09e9e;
+          border-radius: 10px;
+          padding: 5px 10px;
+          transition: all 0.2s ease;
+          &::placeholder {
+            color: #a09e9e;
+          }
+
+          &:focus,
+          &:hover {
+            border-color: #50b5ff;
+          }
+        }
+      }
+      &__send {
+        color: #fff;
+        cursor: pointer;
+        background-color: #50b5ff;
+        border: none;
+        font-size: 14px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        svg {
+          display: flex;
+          font-size: 20px;
+        }
+        span {
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+
+  &__status {
+    display: block;
+    height: 12px;
+    width: 12px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.3%);
+    position: absolute;
+    top: -4px;
+    left: -2px;
+    z-index: 2;
+    &--offline {
+      background-color: #b0bacb;
+    }
+    &--online {
+      background-color: #17dd17;
+    }
+  }
+
+  &__user {
+    display: block;
+    padding: 35px 0;
+    cursor: pointer;
+    transition: 0.5s ease;
+    &-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px 0 23.5px;
+    }
+
+    &:hover,
+    &--active {
+      background-color: #f5fbff;
+    }
+    &:hover {
+      .chat__user-avatar {
+        &::before {
+          visibility: visible;
+          opacity: 1;
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        &::after {
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+    }
+
+    &-avatar {
+      position: relative;
+      display: inline-block;
+
+      &::after,
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+        transform: translate(-50%, -50%);
+      }
+
+      &::after {
+        content: url('../../../assets/images/chat_round_shape.png');
+
+        z-index: 1;
+      }
+      &::before {
+        content: url('../../../assets/images/chat_round_shape2.png');
+        z-index: 1;
+        transform: translate(-50%, -50%) rotate(30deg);
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      img {
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        object-fit: cover;
+      }
+    }
+
+    &-info {
+      display: flex;
+      align-items: center;
+
+      &__fullname {
+        h6 {
+          color: #3f414d;
+          font-size: 17px;
+          font-weight: 500;
+        }
+      }
+      &__message {
+        position: relative;
+
+        max-width: 235px;
+        font-size: 12px;
+        color: #777d74;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &__data {
+        margin-left: 15px;
+      }
+    }
+
+    &-meta {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      &__count {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: #fff;
+        background-color: #50b5ff;
+      }
+      &__time {
+        font-size: 12px;
+        color: #7e7e7e;
+        margin-bottom: 5px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__message {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &-left {
+      justify-content: flex-start;
+
+      .chat__message-info {
+        order: 1;
+      }
+      .chat__message-bubble {
+        order: 2;
+        text-align: left;
+
+        margin: 0 1.33rem 1.33rem 1.33rem;
+        color: #777d74;
+        background-color: #fff;
+        box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1%);
+      }
+
+      .chat__message-status {
+        svg {
+          color: #9f9494;
+        }
+      }
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-user {
+      img {
+        border-radius: 15px;
+        width: 45px;
+        height: 45px;
+        object-fit: cover;
+      }
+    }
+    &-sended-time {
+      font-size: 12px;
+      color: #7e7e7e;
+    }
+
+    &-bubble {
+      text-align: right;
+      padding: 15px 10px 0 10px;
+      margin: 0 1.33rem 0.3rem 0.3rem;
+      word-break: break-word;
+      color: #fff;
+      background: #50b5ff;
+      border-radius: 15px;
+      box-shadow: 0 2px 4px 0 rgb(80, 181, 255);
+    }
+    &-text {
+      margin: 0;
+    }
+    &-status {
+      display: block;
+      text-align: right;
+      margin: 10px 0;
+      &--read {
+        svg {
+          color: #05f !important;
+        }
+      }
+      svg {
+        font-size: 22px;
+        color: #fff;
+      }
+    }
+
+    &-typing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 10px 25px 20px;
+      &-circle {
+        position: relative;
+        left: -9999px;
+        width: 6px;
+        height: 6px;
+        border-radius: 5px;
+        background-color: #05f;
+        color: #05f;
+        box-shadow: none;
+        animation: dotTyping 1.5s infinite linear;
+      }
+    }
+  }
+}

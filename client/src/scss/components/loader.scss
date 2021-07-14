@@ -1,0 +1,49 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  padding: 30px;
+  margin: 20px 0px;
+  &__typing {
+    position: relative;
+    left: -9999px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: #05f;
+    color: #05f;
+    box-shadow: none;
+    animation: dotTyping 1.5s infinite linear;
+  }
+
+  &__full {
+    width: 90%;
+  }
+}
+
+@keyframes dotTyping {
+  0% {
+    box-shadow: 9984px 0 0 0 #05f, 9995px 0 0 0 #05f, 10005px 0 0 0 #05f;
+  }
+  16.667% {
+    box-shadow: 9984px -10px 0 0 #05f, 9995px 0 0 0 #05f, 10005px 0 0 0 #05f;
+  }
+  33.333% {
+    box-shadow: 9984px 0 0 0 #05f, 9995px 0 0 0 #05f, 10005px 0 0 0 #05f;
+  }
+  50% {
+    box-shadow: 9984px 0 0 0 #05f, 9995px -10px 0 0 #05f, 10005px 0 0 0 #05f;
+  }
+  66.667% {
+    box-shadow: 9984px 0 0 0 #05f, 9995px 0 0 0 #05f, 10005px 0 0 0 #05f;
+  }
+  83.333% {
+    box-shadow: 9984px 0 0 0 #05f, 9995px 0 0 0 #05f, 10005px -10px 0 0 #05f;
+  }
+  100% {
+    box-shadow: 9984px 0 0 0 #05f, 9995px 0 0 0 #05f, 10005px 0 0 0 #05f;
+  }
+}

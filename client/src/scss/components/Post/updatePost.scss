@@ -1,0 +1,31 @@
+.edit-popup {
+  &-content {
+    padding: 20px 10px;
+    max-width: 600px;
+    border-radius: 10px;
+  }
+
+  &__input {
+    color: #636568;
+    font-weight: 500;
+    border-radius: 15px;
+    border: 2px solid #f1f1f1;
+    font-size: 14px;
+    width: 100%;
+    resize: vertical;
+    padding: 20px;
+    height: 100px;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  &__button {
+    padding: 10px 20px;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  &__inner {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

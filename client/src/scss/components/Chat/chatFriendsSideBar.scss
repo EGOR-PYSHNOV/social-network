@@ -1,0 +1,83 @@
+.chat-side {
+  top: 75px;
+  z-index: 4;
+  position: fixed;
+  width: 260px;
+  right: 0;
+  transform: translateX(calc(121% + -2em));
+  transition: all 0.5s ease;
+
+  &--active {
+    transform: translateX(calc(10% + -1em));
+  }
+  &__body {
+    background-color: #fff;
+    box-shadow: 0px 0px 25px 0px rgba(45, 69, 95, 0.1);
+    height: 100vh;
+    padding: 45px 5px 25px 25px;
+  }
+  &__card {
+    display: flex;
+    align-items: center;
+    margin: 35px 0;
+    cursor: pointer;
+
+    &:hover {
+      .chat-side__avatar {
+        &::before {
+          visibility: visible;
+          opacity: 1;
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        &::after {
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__avatar {
+    position: relative;
+    display: inline-block;
+
+    &::after,
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      content: url('../../../assets/images/chat_round_shape.png');
+
+      z-index: 1;
+    }
+    &::before {
+      content: url('../../../assets/images/chat_round_shape2.png');
+      z-index: 1;
+      transform: translate(-50%, -50%) rotate(30deg);
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      object-fit: cover;
+    }
+  }
+
+  &__fullname {
+    margin-left: 15px;
+    h6 {
+      color: #3f414d;
+      font-size: 17px;
+      font-weight: 500;
+    }
+  }
+}

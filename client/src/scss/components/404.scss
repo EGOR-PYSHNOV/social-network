@@ -1,0 +1,39 @@
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  flex-direction: column;
+
+  &__img {
+    width: 400px;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &__title {
+    font-weight: 700;
+    color: #212529;
+    font-size: 50px;
+    margin: 20px 0;
+  }
+  &__text {
+    color: #adb5bd;
+    font-size: 14px;
+  }
+  &__button {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 0.3rem;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    width: 175px;
+    background: #05f;
+    text-align: center;
+    padding: 20px 40px;
+    text-decoration: none;
+  }
+}

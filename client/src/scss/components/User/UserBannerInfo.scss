@@ -1,0 +1,51 @@
+.user-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    img {
+      border-radius: 50%;
+      background-color: #fff;
+      padding: 10px;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    color: #fff;
+    padding: 5px;
+    margin: 10px 0;
+  }
+  &__info {
+    margin-left: 20px;
+
+    h1 {
+      font-size: 23px;
+    }
+    h4 {
+      font-weight: 500;
+      color: #adb5bd;
+
+      font-size: 13px;
+    }
+  }
+  &__inner {
+    display: flex;
+    flex: 0 1 75%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__about {
+    flex: 1 1 100%;
+  }
+}

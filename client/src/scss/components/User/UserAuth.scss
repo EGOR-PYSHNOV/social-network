@@ -1,0 +1,110 @@
+.user-auth {
+  display: flex;
+
+  &__image {
+    flex: 0 1 50%;
+    img {
+      width: 100%;
+    }
+  }
+  &__form {
+    flex: 0 1 50%;
+  }
+
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 20px;
+    align-self: flex-start;
+  }
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    margin: 50px auto 0 auto;
+
+    form {
+      width: 100%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 10px;
+    a {
+      color: #fff;
+      background-color: #343a40;
+      border-radius: 30px;
+      padding: 15px 25px;
+      text-decoration: none;
+      margin: 5px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .active {
+      background-color: #05f;
+    }
+  }
+
+  &__button {
+    height: 60px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+    width: 100%;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+
+  &__upload-avatar {
+    position: relative;
+    width: 200px;
+    margin: auto;
+  }
+
+  &__upload-avatar-remove {
+    position: absolute;
+    right: -10px;
+    top: -15px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    svg {
+      font-size: 15px;
+    }
+  }
+  &__upload-avatar-icon {
+    cursor: pointer;
+    position: absolute;
+    right: -30px;
+    bottom: -10px;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    svg {
+      font-size: 30px;
+    }
+  }
+}
+
+.user-login {
+  &__inner {
+    margin: 150px auto 0 auto;
+  }
+}
