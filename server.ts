@@ -40,9 +40,9 @@ app.use(express.json());
 app.use(passport.initialize());
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.resolve(__dirname, '../../build')));
+  app.use(express.static('client/build'));
   app.get('*', function (_, response) {
-    response.sendFile(path.resolve(__dirname, '../../build', 'index.html'));
+    response.sendFile(path.resolve('client/build', 'index.html'));
   });
 }
 
