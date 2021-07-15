@@ -41,9 +41,6 @@ app.use(passport.initialize());
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
-  app.get('*', function (_, response) {
-    response.sendFile(path.resolve('client/build', 'index.html'));
-  });
 }
 
 app.get('/users/me', passport.authenticate('jwt'), UserCtrl.getUserInfo);
@@ -73,6 +70,12 @@ app.get('/messages', passport.authenticate('jwt'), MessageCtrl.index.bind(Messag
 app.post('/messages', passport.authenticate('jwt'), MessageCtrl.create.bind(MessageCtrl));
 
 app.post('/upload', upload.single('image'), UploadFileCtrl.upload);
+
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', function (_, response) {
+    response.sendFile(path.resolve('client/build', 'index.html'));
+  });
+}
 
 server.listen(PORT, (): void => {
   console.log('SERVER WAS RUNNED!');
