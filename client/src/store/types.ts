@@ -8,4 +8,5 @@ export enum LoadingStatus {
 
 export enum UserStatus {
   UNAUTHORIZED = 'UNAUTHORIZED',
+  REGISTER = 'REGISTER',
 }

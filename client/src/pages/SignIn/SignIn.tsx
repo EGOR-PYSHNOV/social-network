@@ -32,6 +32,7 @@ export const SignIn = (): React.ReactElement => {
   const onSubmit = async (data: Pick<ISignUp, 'username' | 'password'>) => {
     dispatch(fetchSignIn(data));
   };
+
   React.useEffect(() => {
     if (loadingStatus === LoadingStatus.SUCCESS) {
       alert('Авторизация успешна!');

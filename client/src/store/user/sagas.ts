@@ -13,7 +13,7 @@ export function* fetchSignUpRequest({ payload }: FetchSignUpActionInterface) {
   try {
     yield put(setUserLoadingStatus(LoadingStatus.LOADING));
     yield call(AuthApi.signUp, payload);
-    yield put(setUserLoadingStatus(LoadingStatus.SUCCESS));
+    yield put(setUserLoadingStatus(UserStatus.REGISTER));
   } catch (error) {
     yield put(setUserLoadingStatus(LoadingStatus.ERROR));
   }

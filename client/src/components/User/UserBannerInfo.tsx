@@ -35,7 +35,9 @@ export const UserBannerInfo = ({
     }
   };
 
-  const dialog = dialogs?.find((dialog) => dialog.author._id === _id || dialog.partner._id === _id);
+  const dialog = dialogs?.find(
+    (dialog) => dialog.author._id === meId || dialog.partner._id === meId,
+  );
 
   return (
     <div className="user-banner">
@@ -58,7 +60,6 @@ export const UserBannerInfo = ({
           </Link>
         ) : (
           <div onClick={handleCreateDialog} className="user-banner__button gradient-blue">
-            {' '}
             Начать диалог
           </div>
         ))}

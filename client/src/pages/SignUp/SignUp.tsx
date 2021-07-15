@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSignUp } from '../../store/user/actionCreators';
+import { fetchSignUp, setUserLoadingStatus } from '../../store/user/actionCreators';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -12,7 +12,7 @@ import { CgUserList } from 'react-icons/cg';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { ISignUp } from '../../store/user/contracts/state';
 import { selectUserStatus } from '../../store/user/selectors';
-import { LoadingStatus } from '../../store/types';
+import { LoadingStatus, UserStatus } from '../../store/types';
 import PlaceHolderImg from '../../assets/images/user/user-placeholder.png';
 import { MdAddAPhoto } from 'react-icons/md';
 import { ImageObj } from '../../components/UploadImage';
@@ -57,9 +57,9 @@ export const SignUp = (): React.ReactElement => {
   };
 
   React.useEffect(() => {
-    if (loadingStatus === LoadingStatus.SUCCESS) {
+    if (loadingStatus === UserStatus.REGISTER) {
       alert('Регистрация успешна!');
-      history.push('/');
+      history.push('/signin');
     } else if (loadingStatus === LoadingStatus.ERROR) {
       alert('Ошибка при регистрации!');
     }

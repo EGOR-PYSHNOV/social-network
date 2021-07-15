@@ -12,42 +12,44 @@ import { fetchPosts } from '../../store/posts/actionCreators';
 import { AuthApi } from '../../api/AuthApi';
 import { selectMeId } from '../../store/user/selectors';
 
-export const UserProfile: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
-  const posts = useSelector(selectPosts);
-  const dispatch = useDispatch();
-  const isLoadingPosts = useSelector(selectIsPostsLoading);
-  const [isLoadingUser, setLoadingUser] = React.useState<boolean>(true);
-  const meId = useSelector(selectMeId);
-  const [userData, setUserData] = React.useState<User>();
-  const [userId, setUserId] = React.useState<string | null>(match.params.id);
+export const UserProfile: React.FC<RouteComponentProps<{ id: string }>> = React.memo(
+  ({ match }) => {
+    const posts = useSelector(selectPosts);
+    const dispatch = useDispatch();
+    const isLoadingPosts = useSelector(selectIsPostsLoading);
+    const [isLoadingUser, setLoadingUser] = React.useState<boolean>(true);
+    const meId = useSelector(selectMeId);
+    const [userData, setUserData] = React.useState<User>();
+    const [userId, setUserId] = React.useState<string | null>(match.params.id);
 
-  if (match.params.id !== userId) {
-    setUserId(match.params.id);
-  }
-
-  React.useEffect(() => {
-    dispatch(fetchPosts());
-    if (userId) {
-      AuthApi.getUserInfo(userId).then(({ data }) => {
-        setUserData(data);
-        setLoadingUser(false);
-      });
+    if (match.params.id !== userId) {
+      setUserId(match.params.id);
     }
-  }, [dispatch, userId]);
 
-  return (
-    <>
-      <Layout>
-        <div className="container">
-          {isLoadingUser ? <Loader /> : <UserBannerInfo {...userData} meId={meId} />}
-          {meId === userId ? <CreatePost /> : null}
-          {isLoadingPosts ? (
-            <Loader />
-          ) : (
-            posts.map((post) => <Post key={post._id} images={post.images} {...post} />)
-          )}
-        </div>
-      </Layout>
-    </>
-  );
-};
+    React.useEffect(() => {
+      dispatch(fetchPosts());
+      if (userId) {
+        AuthApi.getUserInfo(userId).then(({ data }) => {
+          setUserData(data);
+          setLoadingUser(false);
+        });
+      }
+    }, [dispatch, userId]);
+
+    return (
+      <>
+        <Layout>
+          <div className="container">
+            {isLoadingUser ? <Loader /> : <UserBannerInfo {...userData} meId={meId} />}
+            {meId === userId ? <CreatePost /> : null}
+            {isLoadingPosts ? (
+              <Loader />
+            ) : (
+              posts.map((post) => <Post key={post._id} images={post.images} {...post} />)
+            )}
+          </div>
+        </Layout>
+      </>
+    );
+  },
+);
