@@ -1,5 +1,7 @@
 # social-network with socket chat
 
+Link: [https://react-my-social-network.herokuapp.com/signin]
+
 Front-end
 
 **Stack:**
@@ -35,3 +37,5 @@ Back-end
 - Passport
 - TypeScript
 - SocketIO
+
+[https://react-my-social-network.herokuapp.com/signin]: https://react-my-social-network.herokuapp.com/signin
